@@ -16,8 +16,9 @@ jobs:
       - name: Set up JDK
         uses: actions/setup-java@v3
         with:
-          distribution: 'temurin'   # Use 'temurin' for the latest Adoptium distribution
+          distribution: 'temurin'
           java-version: '11'
 
       - name: Build with Maven
+        working-directory: Vehicle_Management_spring/Vehicle_Manangement_spring  # Updated directory
         run: mvn clean install
