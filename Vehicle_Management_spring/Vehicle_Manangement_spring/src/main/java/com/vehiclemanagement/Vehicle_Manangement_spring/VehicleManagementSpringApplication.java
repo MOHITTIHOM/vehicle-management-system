@@ -9,7 +9,6 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 public class VehicleManagementSpringApplication {
 
 	public static void main(String[] args) {
-		System.out.println("Just to complete some flow");
 		SpringApplication.run(VehicleManagementSpringApplication.class, args);
 	}
 
