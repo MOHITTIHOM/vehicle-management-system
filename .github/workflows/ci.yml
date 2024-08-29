@@ -13,12 +13,12 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
 
-      - name: Set up JDK
+      - name: Set up JDK 17
         uses: actions/setup-java@v3
         with:
           distribution: 'temurin'
-          java-version: '11'
+          java-version: '17'  # Updated to JDK 17
 
       - name: Build with Maven
-        working-directory: Vehicle_Management_spring/Vehicle_Manangement_spring  # Updated directory
+        working-directory: Vehicle_Management_spring/Vehicle_Manangement_spring  # Ensure this path is correct
         run: mvn clean install
