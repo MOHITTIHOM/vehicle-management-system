@@ -9,6 +9,7 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 public class VehicleManagementSpringApplication {
 
 	public static void main(String[] args) {
+		System.out.println("Hello, I am working");
 		SpringApplication.run(VehicleManagementSpringApplication.class, args);
 	}
 
