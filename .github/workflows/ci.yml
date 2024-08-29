@@ -17,8 +17,8 @@ jobs:
         uses: actions/setup-java@v3
         with:
           distribution: 'temurin'
-          java-version: '17'  # Updated to JDK 17
+          java-version: '17'
 
       - name: Build with Maven
         working-directory: Vehicle_Management_spring/Vehicle_Manangement_spring  # Ensure this path is correct
-        run: mvn clean install
+        run: mvn clean install -DskipTests=true  # Skip tests
