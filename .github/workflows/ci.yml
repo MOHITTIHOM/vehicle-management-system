@@ -16,7 +16,7 @@ jobs:
       - name: Set up JDK
         uses: actions/setup-java@v3
         with:
-          distribution: 'adoptopenjdk'  # You can use 'zulu', 'adoptopenjdk', 'openjdk', etc.
+          distribution: 'adoptium'
           java-version: '11'
 
       - name: Build with Maven
