@@ -1,0 +1,76 @@
+.parent {
+    display: flex;
+    justify-content: center;
+  }
+  
+  .child {
+    width: 80%;
+    background-color: #f5f5f5;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .imgDiv {
+    text-align: center;
+  }
+  
+  .profile-badge {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+  }
+  
+  .profile {
+    max-width: 100px;
+    max-height: 100px;
+    border-radius: 4px;
+  }
+  
+  .nz-form-item {
+    margin-bottom: 20px;
+  }
+  
+  .nz-form-control {
+    .ant-form-item-control-input {
+      width: 100%;
+    }
+  
+    .ant-form-item-control-input-content {
+      width: 100%;
+    }
+  }
+  
+  .nz-select {
+    width: 100%;
+  }
+  
+  textarea[nz-input] {
+    width: 100%;
+  }
+  
+  button[nz-button] {
+    margin-top: 20px;
+  }
+  
+  .upload-label {
+    cursor: pointer;
+    display: inline-block;
+  }
+  
+  .upload-label img {
+    max-width: 100px;
+    height: auto;
+  }
+  
+  .login-form-button {
+    display: block;
+    width: 100%;
+    text-align: center;
+  }
+  
+  .login-form-margin {
+    margin-top: 20px;
+  }
+  

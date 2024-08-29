@@ -1,0 +1,40 @@
+<div class="signup-container">
+  <h1>Sign Up</h1>
+  <form (ngSubmit)="onSubmit()" [formGroup]="signupForm">
+    <nz-form [formGroup]="signupForm">
+      <nz-form-item>
+        <nz-form-label [nzSpan]="6" nzRequired>Name</nz-form-label>
+        <nz-form-control [nzSpan]="14">
+          <input nz-input formControlName="name" placeholder="Enter your name" /> <!-- Update formControlName here -->
+        </nz-form-control>
+      </nz-form-item>
+
+      <nz-form-item>
+        <nz-form-label [nzSpan]="6" nzRequired>Email</nz-form-label>
+        <nz-form-control [nzSpan]="14">
+          <input nz-input formControlName="email" placeholder="Enter your email" />
+        </nz-form-control>
+      </nz-form-item>
+
+      <nz-form-item>
+        <nz-form-label [nzSpan]="6" nzRequired>Password</nz-form-label>
+        <nz-form-control [nzSpan]="14">
+          <input nz-input formControlName="password" type="password" placeholder="Enter your password" />
+        </nz-form-control>
+      </nz-form-item>
+
+      <nz-form-item>
+        <nz-form-label [nzSpan]="6" nzRequired>Confirm Password</nz-form-label>
+        <nz-form-control [nzSpan]="14">
+          <input nz-input formControlName="confirmPassword" type="password" placeholder="Confirm your password" />
+        </nz-form-control>
+      </nz-form-item>
+
+      <nz-form-item>
+        <nz-form-control [nzSpan]="14" [nzOffset]="6">
+          <button nz-button nzType="primary" type="submit" [disabled]="signupForm.invalid">Sign Up</button>
+        </nz-form-control>
+      </nz-form-item>
+    </nz-form>
+  </form>
+</div>

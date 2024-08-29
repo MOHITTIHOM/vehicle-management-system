@@ -1,0 +1,29 @@
+.main-header {
+  display: flex;
+  justify-content: space-between; // Distribute space between title and nav-links
+  align-items: center; // Align items vertically center
+  padding: 0 16px; // Add padding if needed
+  background-color: #b3d9ff; // Set the background color to light blue
+  color: #5f1b84; // Optional: Set text color to ensure good contrast
+}
+
+.navbar-title {
+  font-size: 25px;
+  flex: 1; // Allow title to take up space on the left
+}
+
+.nav-links {
+  display: flex; // Align buttons in a row
+  gap: 16px; // Add space between buttons if needed
+  justify-content: flex-end; // Align buttons to the right
+}
+
+.nav-links button {
+  font-size: 16px; // Increase font size for the buttons
+  padding: 8px 16px; // Adjust padding to ensure text fits inside buttons
+  border-radius: 4px; // Optional: Add rounded corners
+  display: inline-flex; // Ensure button fits the content
+  align-items: center; // Center text vertically
+  min-width: 100px; // Ensure buttons have a minimum width
+  text-align: center; // Center text horizontally
+}

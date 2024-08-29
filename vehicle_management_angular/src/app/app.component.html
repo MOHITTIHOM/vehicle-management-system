@@ -1,0 +1,43 @@
+<!-- app.component.html -->
+<div *ngIf="!isAdminLoggedIn && !isCustomerLoggedIn">
+  <nz-header class="main-header" nz-row nzType="flex">
+    <div class="navbar-title">
+      <a routerLink="/login">Vehicle Rental Service</a>
+    </div>
+    <div class="nav-links">
+      <button nz-button nzType="primary" routerLink="/register" routerLinkActive="active">Sign Up</button>
+      <button nz-button nzType="primary" routerLink="/login" routerLinkActive="active">Login</button>
+    </div>
+  </nz-header>
+</div>
+
+<div *ngIf="isAdminLoggedIn">
+  <nz-header class="main-header" nz-row nzType="flex">
+    <div class="navbar-title">
+      <a routerLink="/admin/dashboard">LoggedIn Admin</a>
+    </div>
+    <div class="nav-links">
+      <button nz-button nzType="primary" routerLink="/admin/dashboard" routerLinkActive="active">Dashboard</button>
+      <button nz-button nzType="primary" routerLink="/admin/car" routerLinkActive="active">Post Car</button>
+      <button nz-button nzType="primary" (click)="logout()"  routerLinkActive="active">Logout</button>
+    </div>
+  </nz-header>
+</div>
+
+
+
+
+<div *ngIf="isCustomerLoggedIn">
+  <nz-header class="main-header" nz-row nzType="flex">
+    <div class="navbar-title">
+      <a routerLink="/customer/dashboard">LoggedIn Customer</a>
+    </div>
+    <div class="nav-links">
+      <button nz-button nzType="primary" routerLink="/customer/dashboard" routerLinkActive="active">Dashboard</button>
+      <button nz-button nzType="primary" (click)="logout()" routerLinkActive="active">Logout</button>
+    </div>
+  </nz-header>
+</div>
+
+
+<router-outlet></router-outlet>

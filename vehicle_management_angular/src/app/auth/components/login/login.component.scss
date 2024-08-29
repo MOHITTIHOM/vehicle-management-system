@@ -1,0 +1,39 @@
+/* Styles specific to the login component */
+
+/* Container for login form */
+.login-container {
+  max-width: 400px; /* Set max-width to control form width */
+  margin: 0 auto; /* Center the container horizontally */
+  padding: 20px;
+  background: #fff; /* White background for the form */
+  border-radius: 8px; /* Rounded corners */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+/* Title */
+.login-container h1 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+/* Form styles */
+.nz-form {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Form item styles */
+.nz-form-item {
+  margin-bottom: 16px;
+}
+
+/* Form control styles */
+.nz-form-control {
+  display: flex;
+  align-items: center;
+}
+
+/* Button styles */
+button.primary {
+  width: 100%; /* Full width button */
+}
