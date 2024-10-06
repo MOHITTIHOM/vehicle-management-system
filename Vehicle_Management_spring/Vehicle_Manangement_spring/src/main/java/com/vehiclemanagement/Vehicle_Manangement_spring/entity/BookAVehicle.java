@@ -1,6 +1,7 @@
 package com.vehiclemanagement.Vehicle_Manangement_spring.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.vehiclemanagement.Vehicle_Manangement_spring.dto.BookAVehicleDto;
 import com.vehiclemanagement.Vehicle_Manangement_spring.entity.enums.BookVehicleStatus;
 import jakarta.persistence.*;
 import lombok.Data;
@@ -35,5 +36,20 @@ public class BookAVehicle {
     @JsonIgnore
     private Vehicle vehicle;
 
+
+    public BookAVehicleDto getBookAVehicleDto() {
+        BookAVehicleDto bookAVehicleDto = new BookAVehicleDto();
+        bookAVehicleDto.setId(this.id);
+        bookAVehicleDto.setFromDate(this.fromDate);
+        bookAVehicleDto.setToDate(this.toDate);
+        bookAVehicleDto.setDays(this.days);
+        bookAVehicleDto.setPrice(this.price);
+        bookAVehicleDto.setBookVehicleStatus(this.bookVehicleStatus);
+        bookAVehicleDto.setVehicleId(this.vehicle.getId());
+        bookAVehicleDto.setUserId(this.user.getId());
+        bookAVehicleDto.setUserName(this.user.getUsername());
+        bookAVehicleDto.setEmail(this.user.getEmail());
+        return bookAVehicleDto;
+    }
 
 }

@@ -1,0 +1,79 @@
+Sure! Here’s a summary of the commands you’ve used for Docker-related tasks:
+
+### **1. Building the Angular Docker Image**
+
+```bash
+docker build -t vehicle-management-angular .
+```
+
+- This command builds a Docker image for the Angular application using the Dockerfile in the current directory and tags it as `vehicle-management-angular`.
+
+### **2. Running the Angular Docker Container**
+
+```bash
+docker run -d -p 4200:80 vehicle-management-angular
+```
+
+- This command runs a Docker container from the `vehicle-management-angular` image in detached mode (`-d`). It maps port 80 in the container to port 4200 on your host, allowing you to access the Angular app at `http://localhost:4200`.
+
+### **3. Building the Spring Boot Docker Image**
+
+For your Spring Boot application, you likely used:
+
+```bash
+docker build -t vehicle-management-spring .
+```
+
+- This builds the Docker image for the Spring Boot application and tags it as `vehicle-management-spring`.
+
+### **4. Running the Spring Boot Docker Container**
+
+```bash
+docker run -d -p 8080:8080 vehicle-management-spring
+```
+
+- This runs a Docker container from the `vehicle-management-spring` image in detached mode (`-d`). It maps port 8080 in the container to port 8080 on your host, making the Spring Boot API accessible at `http://localhost:8080`.
+
+### **5. Viewing Docker Images**
+
+```bash
+docker images
+```
+
+- Lists all Docker images on your local machine.
+
+### **6. Viewing Container Logs**
+
+```bash
+docker logs <container_id>
+```
+
+- Shows the logs for a running or stopped Docker container. Replace `<container_id>` with the actual container ID.
+
+### **Additional Commands**
+
+- **Listing Running Containers:**
+
+  ```bash
+  docker ps
+  ```
+
+  - Lists all currently running Docker containers.
+
+- **Stopping a Running Container:**
+
+  ```bash
+  docker stop <container_id>
+  ```
+
+  - Stops a running Docker container. Replace `<container_id>` with the actual container ID.
+
+- **Removing a Docker Container:**
+
+  ```bash
+  docker rm <container_id>
+  ```
+
+  - Removes a stopped Docker container. Replace `<container_id>` with the actual container ID.
+
+These commands cover the basic operations for building and running Docker containers for your Angular and Spring Boot applications. If you need further details or have any more questions, feel free to ask!

@@ -37,16 +37,20 @@ public class CustomerServiceImpl implements CustomerService {
         Optional<Vehicle> optionalVehicle = vehicleRepository.findById(bookAVehicleDto.getVehicleId());
         Optional<User> optionalUser = userRepository.findById(bookAVehicleDto.getUserId());
         if(optionalVehicle.isPresent() && optionalUser.isPresent()){
-
+            System.out.println("Booking Vehicle " + bookAVehicleDto.toString());
             Vehicle existingVehicle = optionalVehicle.get();
             BookAVehicle bookAVehicle = new BookAVehicle();
             bookAVehicle.setUser(optionalUser.get());
             bookAVehicle.setVehicle(existingVehicle);
             bookAVehicle.setBookVehicleStatus(BookVehicleStatus.PENDING);
+            bookAVehicle.setFromDate(bookAVehicleDto.getFromDate());
+            bookAVehicle.setToDate(bookAVehicleDto.getToDate());
+
             long diffInMilliSecond = bookAVehicleDto.getToDate().getTime() - bookAVehicleDto.getFromDate().getTime();
             long days = TimeUnit.MILLISECONDS.toDays(diffInMilliSecond);
-            bookAVehicleDto.setDays(days);
+            bookAVehicle.setDays(days);
             bookAVehicle.setPrice(existingVehicle.getPrice() * days);
+            bookAVehicle.setBookVehicleStatus(BookVehicleStatus.PENDING);
             bookAVehicleRepository.save(bookAVehicle);
             return true;
         }
@@ -57,5 +61,10 @@ public class CustomerServiceImpl implements CustomerService {
     public CarDto getCarById(Long carId) {
         Optional<Car> optionalCar = carRepository.findById(carId);
         return optionalCar.map(Car::getCarDto).orElse(null);
+    }
+
+    @Override
+    public List<BookAVehicleDto> getBookingsByUserId(Long userId) {
+        return bookAVehicleRepository.findAllByUserId(userId).stream().map(BookAVehicle::getBookAVehicleDto).collect(Collectors.toList());
     }
 }

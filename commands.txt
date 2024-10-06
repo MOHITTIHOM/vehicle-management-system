@@ -1,0 +1,17 @@
+docker build --build-arg RUN_TESTS=false -t vehicle-management-spring .
+
+cmd
+Copy code
+cd C:\Users\ASUS\OneDrive\Desktop\vm_system\Vehicle_Management_spring\Vehicle_Manangement_spring
+Run the following command to build your Docker image:
+
+cmd
+Copy code
+docker build -t vehicle-management-spring .
+
+Run the Docker Container:
+After the image is built successfully, you can run it with:
+
+cmd
+Copy code
+docker run -p 8080:8080 vehicle-management-spring

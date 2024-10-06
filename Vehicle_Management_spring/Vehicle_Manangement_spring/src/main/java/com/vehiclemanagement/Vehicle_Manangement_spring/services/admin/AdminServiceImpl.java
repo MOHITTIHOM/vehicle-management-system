@@ -1,9 +1,13 @@
 package com.vehiclemanagement.Vehicle_Manangement_spring.services.admin;
 
+import com.vehiclemanagement.Vehicle_Manangement_spring.dto.BookAVehicleDto;
 import com.vehiclemanagement.Vehicle_Manangement_spring.dto.CarDto;
 import com.vehiclemanagement.Vehicle_Manangement_spring.dto.VehicleDto;
+import com.vehiclemanagement.Vehicle_Manangement_spring.entity.BookAVehicle;
 import com.vehiclemanagement.Vehicle_Manangement_spring.entity.Car;
 import com.vehiclemanagement.Vehicle_Manangement_spring.entity.Vehicle;
+import com.vehiclemanagement.Vehicle_Manangement_spring.entity.enums.BookVehicleStatus;
+import com.vehiclemanagement.Vehicle_Manangement_spring.repository.BookAVehicleRepository;
 import com.vehiclemanagement.Vehicle_Manangement_spring.repository.CarRepository;
 import com.vehiclemanagement.Vehicle_Manangement_spring.repository.VehicleRepository;
 import lombok.RequiredArgsConstructor;
@@ -12,6 +16,7 @@ import org.springframework.stereotype.Service;
 
 import java.io.IOException;
 import java.util.List;
+import java.util.Objects;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
@@ -21,6 +26,7 @@ import java.util.stream.Collectors;
 public class AdminServiceImpl implements AdminService {
     private final VehicleRepository vehicleRepository;
     private final CarRepository carRepository;
+    private final BookAVehicleRepository bookAVehicleRepository;
 
     @Override
     public boolean postCarVehicle(CarDto carDto) throws IOException {
@@ -105,6 +111,27 @@ public class AdminServiceImpl implements AdminService {
         return false;
     }
 
+    @Override
+    public List<BookAVehicleDto> getBookings() {
+        return bookAVehicleRepository.findAll().stream().map(BookAVehicle::getBookAVehicleDto).collect(Collectors.toList());
+    }
 
+    @Override
+    public boolean changeBookingStatus(Long bookingId, String status) {
+        System.out.println(bookingId + " " + status);
+        Optional<BookAVehicle> optionalBooking = bookAVehicleRepository.findById(bookingId);
+        if (optionalBooking.isPresent()) {
+            BookAVehicle booking = optionalBooking.get();
+            if(Objects.equals(status, "Approved")) {
+                booking.setBookVehicleStatus(BookVehicleStatus.APPROVED);
+            }
+            else {
+                booking.setBookVehicleStatus(BookVehicleStatus.REJECTED);
+            }
+            bookAVehicleRepository.save(booking);
+            return true;
+        }
+        return false;
+    }
 
 }

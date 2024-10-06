@@ -3,7 +3,10 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { StorageService } from '../../../auth/services/storage/storage.service';
 
-const BASE_URL = "http://localhost:8080";
+import { CONFIG } from '../../../services/config.service';
+
+
+const BASE_URL = CONFIG.BASE_URL;
 
 @Injectable({
   providedIn: 'root'
@@ -38,6 +41,18 @@ export class AdminService {
 
   updateCar(carId:number, formData: any): Observable<any> {
     return this.http.put(BASE_URL+"/api/admin/vehicle/" + carId, formData, {
+      headers: this.createAuthorizationHeader()
+    });
+  }
+
+  getCarBookings(): Observable<any> {
+    return this.http.get(BASE_URL+"/api/admin/vehicle/bookings", {
+      headers: this.createAuthorizationHeader()
+    });
+  }
+
+  changeBookingStatus(bookingId:number, status:string):Observable<any>{
+    return this.http.get(BASE_URL+`/api/admin/vehicle/booking/${bookingId}/${status}`, {
       headers: this.createAuthorizationHeader()
     });
   }

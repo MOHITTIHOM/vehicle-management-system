@@ -1,5 +1,6 @@
 package com.vehiclemanagement.Vehicle_Manangement_spring.controller;
 
+import com.vehiclemanagement.Vehicle_Manangement_spring.dto.BookAVehicleDto;
 import com.vehiclemanagement.Vehicle_Manangement_spring.dto.CarDto;
 import com.vehiclemanagement.Vehicle_Manangement_spring.services.admin.AdminService;
 import lombok.RequiredArgsConstructor;
@@ -87,4 +88,21 @@ public class AdminController {
     }
 
 
+    @GetMapping("/vehicle/bookings")
+    private ResponseEntity<List<BookAVehicleDto>> getBookings() {
+        List<BookAVehicleDto> bookAVehicleDtos = adminService.getBookings();
+        return ResponseEntity.ok(bookAVehicleDtos);
+    }
+
+
+    @GetMapping("/vehicle/booking/{bookingId}/{status}")
+    public ResponseEntity<?> changeBookingStatus(@PathVariable Long bookingId, @PathVariable String status) {
+        System.out.println(bookingId + " " + status);
+        boolean success = adminService.changeBookingStatus(bookingId, status);
+        if (success) {
+            return ResponseEntity.ok().build();
+        } else {
+            return ResponseEntity.notFound().build();
+        }
+    }
 }

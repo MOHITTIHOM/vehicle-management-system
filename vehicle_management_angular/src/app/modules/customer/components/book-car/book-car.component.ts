@@ -75,6 +75,7 @@ export class BookCarComponent {
       vehicleId:this.carId
     }
     this.service.bookAVehicle(bookAVehicleDto).subscribe((res)=>{
+      console.log(bookAVehicleDto);
       console.log(res);
       this.message.success("Booking request submitted successfully", { nzDuration:5000});
       this.route.navigateByUrl("/customer/dashboard");

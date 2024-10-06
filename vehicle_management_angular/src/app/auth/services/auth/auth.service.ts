@@ -1,8 +1,10 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { CONFIG } from '../../../services/config.service';
 
-const BASE_URL = ["http://localhost:8080"];
+
+const BASE_URL = CONFIG.BASE_URL;
 
 
 @Injectable({

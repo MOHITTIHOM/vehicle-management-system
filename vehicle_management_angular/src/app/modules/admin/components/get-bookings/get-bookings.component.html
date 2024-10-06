@@ -1,0 +1,39 @@
+<nz-spin [nzSpinning]="isSpinning" [nzSize]="'large'" nzTip="Loading...">
+    <nz-table #basicTable [nzData]="bookings" [nzPageSize]="10" [nzShowPagination]="'false'">
+        <thead>
+            <tr>
+                <th style="font-weight: bolder; color: #003973;">Username</th>
+                <th style="font-weight: bolder; color: #003973;">email</th>
+                <th style="font-weight: bolder; color: #003973;">From Date</th>
+                <th style="font-weight: bolder; color: #003973;">To Date</th>
+                <th style="font-weight: bolder; color: #003973;">Days</th>
+                <th style="font-weight: bolder; color: #003973;">Price</th>
+                <th style="font-weight: bolder; color: #003973;">Status</th>
+                <th style="font-weight: bolder; color: #003973;">Action</th>
+            </tr>
+            <tr *ngFor="let booking of basicTable.data">
+                <td>{{booking.userName}}</td>
+                <td>{{booking.email}}</td>
+                <td>{{booking.fromDate | date: 'dd-MM-yyyy'}}</td>
+                <td>{{booking.toDate | date: 'dd-MM-yyyy'}}</td>
+                <td>{{booking.days}}</td>
+                <td>{{booking.price}}</td>
+                <td>
+                    <strong 
+                    [ngStyle]="{'color': booking.bookVehicleStatus === 'APPROVED' ? 'green' : booking.bookVehicleStatus === 'PENDING' ? 'blue' : 'red'}">
+                        {{booking.bookVehicleStatus}}
+                    </strong>
+                </td>
+                <td>
+                    <span *ngIf="booking.bookVehicleStatus === 'PENDING'">
+                        <button style="margin-left: 10px;" nzSize="small" nz-button nzType="primary"
+                         (click)="changeBookingStatus(booking.id, 'Approved')" >Approve</button>
+
+                        <button style="margin-left: 10px;" nzSize="small" nz-button nzType="primary" 
+                        (click)="changeBookingStatus(booking.id, 'Rejected')" nzDanger>Reject</button>
+                    </span>
+                </td>
+            </tr>
+        </thead>
+    </nz-table>
+</nz-spin>

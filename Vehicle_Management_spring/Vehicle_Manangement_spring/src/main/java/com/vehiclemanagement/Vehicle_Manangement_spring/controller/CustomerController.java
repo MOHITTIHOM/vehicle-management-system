@@ -38,4 +38,10 @@ public class CustomerController {
         if( carDto == null) return ResponseEntity.notFound().build();
         return ResponseEntity.ok(carDto);
     }
+
+    @GetMapping("/vehicle/bookings/{userId}")
+    public ResponseEntity<List<BookAVehicleDto>> getBookingsByUserId(@PathVariable Long userId){
+        List<BookAVehicleDto> bookAVehicleDtos = customerService.getBookingsByUserId(userId);
+        return ResponseEntity.ok(bookAVehicleDtos);
+    }
 }

@@ -18,4 +18,21 @@ public class BookAVehicleDto{
 
     private Long vehicleId;
     private Long userId;
+    private String userName;
+    private String email;
+    @Override
+    public String toString() {
+        return "BookAVehicleDto{" +
+                "id=" + id +
+                ", fromDate=" + fromDate +
+                ", toDate=" + toDate +
+                ", days=" + days +
+                ", price=" + price +
+                ", bookVehicleStatus=" + bookVehicleStatus +
+                ", vehicleId=" + vehicleId +
+                ", userId=" + userId +
+                ", userName='" + userName + '\'' +
+                ", email='" + email + '\'' +
+                '}';
+    }
 }
