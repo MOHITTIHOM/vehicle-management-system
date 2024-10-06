@@ -23,3 +23,9 @@
 2. Rest API
 3. Mysql
 4. Docker
+
+
+### Todo:
+1. UI improvements
+2. Polling on the customer to show the status of the booking, Polling on the Admin to show the new Booking Requests
+3. Custom search funtion (Elastic Search)
